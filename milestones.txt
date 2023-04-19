@@ -1,0 +1,41 @@
+MILESTONE 1
+
+    dividere in parti la pagina nelle macro-aree:
+        • header (bg: nero)
+        • main (bg: grigio scuro)
+
+        HEADER: 
+            • lato sinistro: logo Boolflix (cl: rosso)
+            • lato destro: search bar 
+
+        MAIN:
+            • sezione lista film
+            • sezione lista serie 
+            • sezione messaggio error ricerca
+
+            LISTA FILM/ LISTA SERIE:
+            • container:
+                • titolo "film/serie"
+                • cards container: (4 per row)
+                    •card
+
+
+MILESTONE 2
+
+    SEARCH BAR:
+        • filtra elementi in base alla ricerca (api)
+    
+    CARD:
+        • img locandina
+        • HOVER: 
+            • sfondo scuro/oscurato 
+            • titolo film/serie
+            • lingua
+            • votazione 
+            • descrizione
+
+    
+MILESTONE 3 
+    
+    • aggiungere dettagli dinamici/animazioni 
+    • *facoltativo* jumbo, carosello film/serie consigliati ecc

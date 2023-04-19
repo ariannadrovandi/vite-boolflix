@@ -1,5 +1,5 @@
 <template>
-    <div class="h-top p-2 d-flex justify-content-between align-items-center">
+    <div class="header p-2 d-flex justify-content-between align-items-center">
         <h1 class="text-uppercase text-danger">Boolflix</h1>
         <div>
             <input type="text">
@@ -15,7 +15,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .h-top{
+    .header{
+        height: 80px;
+        width: 100%;
         background-color: #121212;
     }
 </style>

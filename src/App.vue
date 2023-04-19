@@ -21,6 +21,24 @@ export default {
       store
     }
   },
+  methods: {
+    getFilm(){
+      const url = store.baseUrl + store.endpoint.film;
+      axios.get(url).then((res) => {
+        store.filmList = res.data.results;
+      })
+    },
+    getSerie(){
+      const url = store.baseUrl + store.endpoint.serieTv;
+      axios.get(url).then((res) => {
+        store.serieList = res.data.results;
+      })
+    }
+  },
+  mounted(){
+    this.getFilm();
+    this.getSerie();
+  }
 }
 </script>
 

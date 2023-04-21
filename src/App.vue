@@ -1,7 +1,11 @@
 <template>
   <div class="ad-page">
-    <HeaderComponent />
+    <HeaderComponent @on-search="getFilm"/> 
     <MainComponent />
+    <ul>
+      <li v-for="film in store.movies">{{ film.title }} - {{ film.original_title }} - {{ film.original_lenguage }} - {{ film.vote_average }}</li>
+      <li v-for="serie in store.series">{{ serie.title }} - {{ serie.original_title }} - {{ serie.original_lenguage }} - {{ serie.vote_average }}</li>
+    </ul>
   </div>
 </template>
 
@@ -14,40 +18,41 @@ export default {
   name: 'App',
   components: {
     HeaderComponent,
-    MainComponent
+    MainComponent,
   },
   data(){
     return {
       store
     }
   },
-  methods: {
-    getFilm(){
-      const url = store.urlBase + store.endpoint.movie;
-      const options = {
-        params: store.params
-      }
-      axios.get(url, options).then((res) => {
-        console.log(res.data);
-        this.store.movies = res.data.results;
-      })
+    methods: {
+      getFilm(){
+                          //chimata api
+        const url = store.urlBase + store.endpoint.movie;
+        const options = {
+          params: store.params
+        }
+        axios.get(url, options).then((res) => {
+          console.log(res.data);
+          this.store.movies = res.data.results;
+        })
       // axios.get(url, {params: store.params});
-    },
-    getSerie(){
-      const url = store.urlBase + store.endpoint.serieTv;
-      const options = {
-        params: store.params
+      },
+      getSerie(){
+                          //chimata api
+        const url = store.urlBase + store.endpoint.serieTv;
+        const options = {
+          params: store.params
+        }
+        axios.get(url, options).then((res) => {
+          console.log(res.data);
+          this.store.series = res.data.results;
+        })
       }
-      axios.get(url, options).then((res) => {
-        console.log(res.data);
-        this.store.series = res.data.results;
-      })
+    },
+    mounted(){
+        // this.getFilm()
     }
-  },
-  mounted(){
-    this.getFilm();
-    this.getSerie();
-  }
 }
 </script>
 
@@ -55,6 +60,6 @@ export default {
   .ad-page{
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    // overflow:auto;
   }
 </style>

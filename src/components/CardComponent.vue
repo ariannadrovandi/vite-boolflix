@@ -1,6 +1,6 @@
 <template>
     <div class="ad-card mx-2 my-4 col-12 col-sm-6 col-md-4 col-lg-3">
-        <img :src="store.baseImg + film.poster_path" :alt="film.title">
+       <div v-for="film in store.movies">{{ film.title }} - {{ film.original_title }} - {{ film.original_lenguage }} - {{ film.vote_average }}</div>
     </div>
 </template>
 

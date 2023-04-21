@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ad-page">
     <HeaderComponent />
     <MainComponent />
   </div>
@@ -23,15 +23,24 @@ export default {
   },
   methods: {
     getFilm(){
-      const url = store.baseUrl + store.endpoint.film;
-      axios.get(url).then((res) => {
-        store.filmList = res.data.results;
+      const url = store.urlBase + store.endpoint.movie;
+      const options = {
+        params: store.params
+      }
+      axios.get(url, options).then((res) => {
+        console.log(res.data);
+        this.store.movies = res.data.results;
       })
+      // axios.get(url, {params: store.params});
     },
     getSerie(){
-      const url = store.baseUrl + store.endpoint.serieTv;
-      axios.get(url).then((res) => {
-        store.serieList = res.data.results;
+      const url = store.urlBase + store.endpoint.serieTv;
+      const options = {
+        params: store.params
+      }
+      axios.get(url, options).then((res) => {
+        console.log(res.data);
+        this.store.series = res.data.results;
       })
     }
   },
@@ -43,4 +52,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .ad-page{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
 </style>

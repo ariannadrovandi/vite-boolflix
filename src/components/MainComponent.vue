@@ -2,11 +2,11 @@
     <div class="main">
         <p class="fs-3">Film Section</p>
         <div class="container d-flex justify-content-between">
-            <CardComponent v-for="(film, index) in store.filmList" :key="film.id" :film="film"/>
+             <CardComponent /> 
         </div>
         <p class="fs-3">Serie TV Section</p>
         <div class="container d-flex justify-content-between">
-            <CardComponent />
+            <CardComponent /> 
         </div>
     </div>
     

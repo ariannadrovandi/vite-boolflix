@@ -1,11 +1,8 @@
 <template>
   <div class="ad-page">
-    <HeaderComponent @on-search="getFilm"/> 
+    <HeaderComponent @on-search="getData" /> 
     <MainComponent />
-    <ul>
-      <li v-for="film in store.movies">{{ film.title }} - {{ film.original_title }} - {{ film.original_lenguage }} - {{ film.vote_average }}</li>
-      <li v-for="serie in store.series">{{ serie.title }} - {{ serie.original_title }} - {{ serie.original_lenguage }} - {{ serie.vote_average }}</li>
-    </ul>
+    
   </div>
 </template>
 
@@ -48,6 +45,10 @@ export default {
           console.log(res.data);
           this.store.series = res.data.results;
         })
+      },
+      getData(){
+        this.getFilm();
+        this.getSerie()
       }
     },
     mounted(){

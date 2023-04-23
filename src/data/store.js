@@ -11,6 +11,9 @@ export const store = reactive({
     params: {
         api_key:'4493a6161bf7eaaf2f840ecc546f651a',
         query: ''
-    }
+    },
+    imagePath : 'https://image.tmdb.org/t/p/',
+    fileSize: 'w342',
+
     
 })

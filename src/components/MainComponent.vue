@@ -1,14 +1,14 @@
 <template>
     <main>
         <section class="container-fluid">
-        <h2>Movies</h2>
-        <div class="row">
+        <h2 class="fs-1 m-3">Movies</h2>
+        <div class="row my-3">
             <CardComponent v-for="(item, index) in store.movies" :key="item.id" :title="item.title" :original_title="item.origina_title" :overview="item.overview" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path"/>
         </div>
     </section>
     <section class="container-fluid">
-        <h2>Serie Tv</h2>
-        <div class="row">
+        <h2 class="fs-1 m-3">Serie Tv</h2>
+        <div class="row my-3">
             <CardComponent v-for="(item, index) in store.series" :key="item.id" :title="item.name" :original_title="item.origina_name" :overview="item.overview" :language="item.original_language" :vote="item.vote_average" :image="item.poster_path"/>
         </div>
     </section>

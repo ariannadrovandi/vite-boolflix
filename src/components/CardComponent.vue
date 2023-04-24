@@ -3,13 +3,17 @@
         <div class="card flip-card">
             <div class="flip-card-inner">
                 <div class="card-image flip-card-front">
-                    <img class="img-fluid" :src="store.imagePath + store.fileSize + image" :alt="title">
+                <img class="img-fluid" :src="(image) ? store.imagePath + store.fileSize + image : '/img/fake.png'" :alt="title">
                 </div>
-                <div class="d-flex flex-column align-items-center justify-content-center flip-card-back">
+                <div class="my-4 d-flex flex-column align-items-center justify-content-center flip-card-back">
                     <p>{{ title }}</p>
                     <p>{{ original_title }}</p>
-                    <img class="img-fluid" id="flags" :src="'/img/'+flags()+'.png'" :alt="language">
-                    <p>{{ vote }}</p>
+                    <p class="fs-6 m-4 overflow-scroll">{{ overview }}</p>
+                    <img class="img-fluid" id="flags" :src="'/img/'+flags+'.png'" :alt="language">
+                    <!-- <p>{{ stars }}</p> -->
+                    <div class="stars">
+                        <i class="fa-star" v-for="(n, index) in 5" :key="index" :class="(n <= stars) ? 'fa-solid' : 'fa-regular'"></i>
+                    </div>
                 </div>
             </div>
             
@@ -24,6 +28,7 @@
         props: [
             'title',
             'original_title',
+            'overview',
             'language',
             'vote',
             'image'
@@ -39,13 +44,16 @@
                 ]
             }
         },
-        methods: {
+        computed: {
             flags() {
                 if (this.availableFlags.includes(this.language)) {
                     return this.language;
                 } else {
                     return 'unk'
                 }
+            },
+            stars() {
+                return Math.round(this.vote / 2);
             }
         }
     }
@@ -71,7 +79,7 @@
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     }
 
     .flip-card:hover .flip-card-inner {
@@ -106,5 +114,9 @@
     #flags{
         width: 50px;
         height: 50px;
+    }
+
+    .fa-star{
+        color: yellow;
     }
 </style>
